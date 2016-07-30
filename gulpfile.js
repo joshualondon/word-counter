@@ -11,8 +11,8 @@ var gulp = require("gulp"),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
 	del = require('del'),
-	notify = require('gulp-notify');
-
+	notify = require('gulp-notify'),
+	ghPages = require('gulp-gh-pages');
 
 
 // build, prefix and reload css
@@ -93,6 +93,18 @@ gulp.task('serve', function() {
 	gulp.watch(['src/*.html', 'src/assets/js/*.js']).on('change', reload);
 });
 
+
 gulp.task('default', ['clean'], function() {
 	gulp.start('css', 'js', 'copy', 'watch', 'serve');
+});
+
+
+// ------
+// Gulp deploy to gh-pages
+// ------
+
+
+gulp.task('deploy', function() {
+	return gulp.src('./dist/**/*')
+	.pipe(ghPages());
 });
