@@ -1,76 +1,42 @@
 @import 'vendor/_normalize-v3.min.scss';
 @import 'https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif:400,400i,700,700i';
+
 @import 'atoms/_clearfix.scss';
+@import 'atoms/_colors.scss';
+@import 'templates/_body.scss';
 
-$white: #fff;
-$black: #000;
+@import 'components/_logotype.scss';
 
-body {
-	color: #000;
-	font: 1em/1.5 'PT Serif', serif;
-	position: relative;
+
+.side {
+	height: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
 }
 
-.logotype {
+.entry {
+	left: 0;
+	padding: 1em;
+	width: 80%;
 
-	span {
-		&:first-child {
-			background: lighten($black, 20%);
-			border-radius: .125em;
-			color: $white;
-			display: inline-block;
-			line-height: 1;
-			padding: .25em;
-		}
-
-	}
-
-	h1 {
-		color: lighten($black, 60%);
-		display: inline-block;
-		font-size: .85rem;
-		font-weight: 400;
-		margin-left: .5em;
-	}
-
-}
-
-
-main {
-	position: absolute;
-
-	.side {
-		height: 100%;
-		position: fixed;
-		top: 0;
-		bottom: 0;
-	}
-
-	.entry {
-		//background: #0f5781;
-		left: 0;
-		padding: 1em;
-		width: 80%;
-
-		.form {
-			textarea {
-				background: transparent;
-				border: none;
-				//color: $white;
-				height: 80vh;
-				width: calc(100% - 2em);
-				outline: none;
-			}
+	.form {
+		textarea {
+			background: transparent;
+			border: none;
+			height: 80vh;
+			width: calc(100% - 2em);
+			outline: none;
 		}
 	}
-
-	.return {
-		border-left: 1px solid darken($white, 10%);
-		left: 80%;
-		width: 20%;
-	}
-
 }
+
+.return {
+	border-left: 1px solid darken($white, 10%);
+	left: 80%;
+	width: 20%;
+}
+
 
 #results {
 	list-style: none;

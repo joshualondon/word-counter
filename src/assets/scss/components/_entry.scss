@@ -1,0 +1,15 @@
+.entry {
+	left: 0;
+	padding: 1em;
+	width: 80%;
+
+	.form {
+		textarea {
+			background: transparent;
+			border: none;
+			height: 80vh;
+			width: calc(100% - 2em);
+			outline: none;
+		}
+	}
+}

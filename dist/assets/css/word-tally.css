@@ -143,10 +143,31 @@ td, th {
 .clearfix:after {
   clear: both; }
 
+#run_it {
+  background: #333333;
+  border: 0;
+  color: #fff;
+  font-size: 2em;
+  position: fixed;
+  bottom: 2em;
+  left: 0;
+  width: 80%; }
+
 body {
   color: #000;
   font: 1em/1.5 'PT Serif', serif;
   position: relative; }
+
+.side {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0; }
+
+.return {
+  border-left: 1px solid #e6e6e6;
+  left: 80%;
+  width: 20%; }
 
 .logotype span:first-child {
   background: #333333;
@@ -163,37 +184,26 @@ body {
   font-weight: 400;
   margin-left: .5em; }
 
-main {
-  position: absolute; }
-  main .side {
-    height: 100%;
-    position: fixed;
-    top: 0;
-    bottom: 0; }
-  main .entry {
-    left: 0;
-    padding: 1em;
-    width: 80%; }
-    main .entry .form textarea {
-      background: transparent;
-      border: none;
-      height: 80vh;
-      width: calc(100% - 2em);
-      outline: none; }
-  main .return {
-    border-left: 1px solid #e6e6e6;
-    left: 80%;
-    width: 20%; }
+.entry {
+  left: 0;
+  padding: 1em;
+  width: 80%; }
+  .entry .form textarea {
+    background: transparent;
+    border: none;
+    height: 80vh;
+    width: calc(100% - 2em);
+    outline: none; }
 
 #results {
   list-style: none;
+  overflow-y: scroll;
   margin: 0;
   padding: 0;
   position: absolute;
   height: 100%;
   max-height: 100%;
-  width: 100%;
-  overflow-y: scroll; }
+  width: 100%; }
   #results li {
     border-bottom: 1px solid #e6e6e6;
     display: block;
@@ -369,16 +379,6 @@ main {
       .totals li span:first-child {
         letter-spacing: 1px;
         text-transform: uppercase; }
-
-#run_it {
-  background: #333333;
-  border: 0;
-  color: #fff;
-  font-size: 2em;
-  position: fixed;
-  bottom: 2em;
-  left: 0;
-  width: 80%; }
 
 .tools-details {
   position: absolute;

@@ -1,0 +1,22 @@
+.logotype {
+
+	span {
+
+		&:first-child {
+			background: lighten($black, 20%);
+			border-radius: .125em;
+			color: $white;
+			display: inline-block;
+			line-height: 1;
+			padding: .25em;
+		}
+	}
+
+	h1 {
+		color: lighten($black, 60%);
+		display: inline-block;
+		font-size: .85rem;
+		font-weight: 400;
+		margin-left: .5em;
+	}
+}

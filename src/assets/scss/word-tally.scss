@@ -1,0 +1,17 @@
+@import 'vendor/_normalize-v3.min.scss';
+@import 'https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif:400,400i,700,700i';
+
+@import 'atoms/_clearfix.scss';
+@import 'atoms/_colors.scss';
+@import 'atoms/_buttons.scss';
+
+
+@import 'templates/_body.scss';
+@import 'templates/_structure.scss';
+
+
+@import 'components/_logotype.scss';
+@import 'components/_entry.scss';
+@import 'components/_results.scss';
+
+@import 'components/_footer.scss';
