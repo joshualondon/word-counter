@@ -1,0 +1,178 @@
+@import 'vendor/_normalize-v3.min.scss';
+@import 'https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif:400,400i,700,700i';
+@import 'atoms/_clearfix.scss';
+
+$white: #fff;
+$black: #000;
+
+body {
+	color: #000;
+	font: 1em/1.5 'PT Serif', serif;
+	position: relative;
+}
+
+.logotype {
+
+	span {
+		&:first-child {
+			background: lighten($black, 20%);
+			border-radius: .125em;
+			color: $white;
+			display: inline-block;
+			line-height: 1;
+			padding: .25em;
+		}
+
+	}
+
+	h1 {
+		color: lighten($black, 60%);
+		display: inline-block;
+		font-size: .85rem;
+		font-weight: 400;
+		margin-left: .5em;
+	}
+
+}
+
+
+main {
+	position: absolute;
+
+	.side {
+		height: 100%;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+	}
+
+	.entry {
+		//background: #0f5781;
+		left: 0;
+		padding: 1em;
+		width: 80%;
+
+		.form {
+			textarea {
+				background: transparent;
+				border: none;
+				//color: $white;
+				height: 80vh;
+				width: calc(100% - 2em);
+				outline: none;
+			}
+		}
+	}
+
+	.return {
+		border-left: 1px solid darken($white, 10%);
+		left: 80%;
+		width: 20%;
+	}
+
+}
+
+#results {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	height: 100%;
+	max-height: 100%;
+	width: 100%;
+	overflow-y: scroll;
+
+	li {
+		border-bottom: 1px solid darken($white, 10%);
+		display: block;
+		line-height: 2;
+		padding: 0 .5em;
+		animation: resultSlide 500ms forwards;
+		opacity: 0;
+
+		@include clearfix;
+
+		&:nth-child(odd) {
+			background: darken($white, 4%);
+		}
+
+		span {
+			display: inline-block;
+			padding: .25em;
+
+			&:nth-child(2) {
+				float: right;
+				font-weight: 700;
+			}
+		}
+	}
+}
+
+@for $i from 1 through 30 {
+	#results li:nth-child(#{$i}) {
+		animation-delay: #{$i}00ms;
+	}
+}
+
+@keyframes resultSlide {
+	from {
+		opacity: 0;
+		transform: translateY(300%);
+	} to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+
+.totals {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		color: lighten($black, 70%);
+		font: 700 .75em/1 'PT Sans', sans-serif;
+
+		span {
+			display: inline-block;
+			padding: 1em .5em;
+
+			&:first-child {
+				letter-spacing: 1px;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+
+
+
+
+#run_it {
+	background: lighten($black, 20%);
+	border: 0;
+	color: $white;
+	font-size: 2em;
+	position: fixed;
+	bottom: 2em;
+	left: 0;
+	width: 80%;
+}
+
+.tools-details {
+	position: absolute;
+	bottom: 3em;
+
+	button {
+		background: transparent;
+		border: 1px solid darken($white, 16%);
+		border-radius: 4px;
+		display: inline-block;
+		line-height: 1;
+		outline: none;
+		padding: .25em 1em .4125em;
+	}
+}
