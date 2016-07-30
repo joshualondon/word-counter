@@ -1,0 +1,74 @@
+@import 'vendor/_normalize-v3.min.scss';
+@import 'atoms/_colors.scss';
+@import 'atoms/_buttons.scss';
+@import 'atoms/_typography.scss';
+
+// -- body setup
+body {
+	color: #000;
+	font: 1em/1.5 'PT Serif', serif;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+// -- basic structure
+.side {
+	height: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+
+	&.entry {
+		left: 0;
+		padding: 0 1em;
+		width: 80%;
+	}
+
+	&.return {
+		border-left: 1px solid darken($white, 10%);
+		left: 80%;
+		width: 20%;
+	}
+}
+
+// -- main textarea
+#word_source {
+	background: transparent;
+	border: none;
+	height: 80vh;
+	width: calc(100% - 2em);
+	outline: none;
+}
+
+.primary-footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: .5em;
+}
+
+.metrics {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		color: lighten($black, 70%);
+		font: 700 .75em/1 'PT Sans', sans-serif;
+
+		span {
+			display: inline-block;
+			padding: .75em 1em;
+
+			&:first-child {
+				letter-spacing: 1px;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+
+@import 'components/_primary-header.scss';
+@import 'components/_logotype.scss';

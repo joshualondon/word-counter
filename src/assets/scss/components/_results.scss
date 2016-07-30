@@ -49,24 +49,3 @@
 		transform: translateY(0);
 	}
 }
-
-.totals {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-
-	li {
-		color: lighten($black, 70%);
-		font: 700 .75em/1 'PT Sans', sans-serif;
-
-		span {
-			display: inline-block;
-			padding: 1em .5em;
-
-			&:first-child {
-				letter-spacing: 1px;
-				text-transform: uppercase;
-			}
-		}
-	}
-}

@@ -1,6 +1,47 @@
+@mixin button($background, $color, $borderColor) {
+
+	background-color: $background;
+	border: 1px solid $borderColor;
+	color: $color;
+
+	&:hover,
+	&:focus {
+		background-color: darken($background, 7%);
+		transition: all .3s ease;
+	}
+
+	&:is-active {
+		background-color: darken($background, 7%);
+	}
+}
+
+button,
+.button {
+	background: transparent;
+	display: inline-block;
+	line-height: 1;
+	outline: none;
+	padding: .25em 1em .4125em;
+}
+
+.button--esc {
+	@include button($white, $black, darken($white, 16%));
+}
+
+button {
+
+	border: 1px solid darken($white, 16%);
+	border-radius: 4px;
+	display: inline-block;
+	line-height: 1;
+	outline: none;
+	padding: .25em 1em .4125em;
+}
+
 #run_it {
 	background: lighten($black, 20%);
 	border: 0;
+	border-radius: 0;
 	color: $white;
 	font-size: 2em;
 	position: fixed;

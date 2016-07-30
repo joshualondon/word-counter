@@ -12,12 +12,13 @@ var gulp = require("gulp"),
 	concat = require('gulp-concat'),
 	del = require('del'),
 	notify = require('gulp-notify'),
-	ghPages = require('gulp-gh-pages');
+	ghPages = require('gulp-gh-pages')
+	inlinesource = require('gulp-inline-source');
 
 
 // build, prefix and reload css
 gulp.task('css', function() {
-	return gulp.src(['src/assets/scss/word-tally.scss'])
+	return gulp.src(['src/assets/scss/word-tally.scss', 'src/assets/scss/critical-css.scss'])
 	.pipe(sass().on('error', sass.logError))
 	.pipe(postcss([
 		autoprefixer({
@@ -30,6 +31,14 @@ gulp.task('css', function() {
 	.pipe(gulp.dest('dist/assets/css'))
 	.pipe(browserSync.stream())
 	.pipe(notify({ message: '✓ CSS complete' }));
+});
+
+
+// inline the first responders css
+gulp.task('inlinecss', function() {
+	return gulp.src('./src/index.html')
+	.pipe(inlinesource())
+	.pipe(gulp.dest('./dist'))
 });
 
 
@@ -50,7 +59,7 @@ gulp.task('js', function() {
 // copy
 gulp.task('copy', function() {
 	return gulp.src('src/index.html')
-	.pipe(gulp.dest('dist/'))
+	.pipe(gulp.dest('src/'))
 	.pipe(notify({ message: '✓ Copy complete' }));
 });
 
@@ -65,7 +74,7 @@ gulp.task('watch', function() {
 	gulp.watch('src/assets/js/*.js', ['js']);
 
 	// html
-	gulp.watch('src/*.html', ['copy']);
+	gulp.watch('src/*.html', ['copy', 'inlinecss']);
 
 });
 
@@ -90,7 +99,7 @@ gulp.task('serve', function() {
 		}
 	});
 
-	gulp.watch(['src/*.html', 'src/assets/js/*.js']).on('change', reload);
+	gulp.watch(['src/*.html', 'src/assets/js/*.js', 'src/assets/scss/critical-css.scss']).on('change', reload);
 });
 
 
