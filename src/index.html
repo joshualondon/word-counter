@@ -1,83 +1,70 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Worder</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Word Tally</title>
+	<meta name="description" content="Word Tally is a browser-based word counter.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-		<link rel="stylesheet" href="assets/css/wordr.css" media="screen" charset="utf-8">
-    </head>
-    <body>
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="assets/css/word-tally.min.css" media="screen" charset="utf-8">
+</head>
+<body>
 
+	<main>
 
+		<div class="side entry">
 
-		<main>
-
-			<div class="side entry">
-				<header class="primary-header">
-					<div class="logotype">
-						<span>W</span>
-						<h1>Worder</h1>
-					</div>
-				</header>
-				<div class="form">
-					<textarea name="word_source" id="word_source" rows="8" cols="40" placeholder="command + V or type words to count"></textarea>
-					<button type="button" id="run_it" name="button">Count</button>
+			<header class="primary-header">
+				<div class="logotype">
+					<span>W</span>
+					<h1>Word Tally</h1>
 				</div>
-				<footer class="tools-details">
-					<div class="">
-						<button class="reset" type="button">esc</button> to clear
-					</div>
-					<div class="">
-						<button type="button" class="download-csv">Download CSV</button>
-					</div>
-				</footer>
+			</header>
+
+			<div class="form">
+				<textarea name="word_source" id="word_source" rows="8" cols="40" placeholder="command + V or type words to count"></textarea>
+				<button type="button" id="run_it" name="button">Count</button>
 			</div>
 
-			<div class="side return">
-				<ul class="totals">
-					<li>
-						<span>Total Words</span>
-						<span id="total_words"></span>
-					</li>
-				</ul>
-
-				<ul id="results">
-
-				</ul>
-			</div>
-
-		</main>
-
-
-
-
-
-
-		<div class="word-count">
+			<footer class="tools-details">
+				<div class="">
+					<button class="reset" type="button">esc</button> to clear
+				</div>
+				<div class="">
+					<button type="button" class="download-csv">Download CSV</button>
+				</div>
+			</footer>
 
 		</div>
 
+		<div class="side return">
 
+			<ul class="totals">
+				<li>
+					<span>Total Words</span>
+					<span id="total_words"></span>
+				</li>
+			</ul>
 
+			<ul id="results"></ul>
+		</div>
 
-		<!-- <section>
-			inspired by: <a href="https://gist.githubusercontent.com/rocktronica/2625413/raw/c166b8ef4b846d7686f5d196efa17f76a9b12fe0/wordfrequency.js">wordfrequency.js</a>
-		</section> -->
+	</main>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="assets/js/word-tally.min.js"></script>
 
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="js/wordr.js"></script>
+		ga('create', 'UA-81686100-1', 'auto');
+		ga('send', 'pageview');
+	</script>
 
-        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-        <script>
-            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-        </script>
-        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-    </body>
+</body>
 </html>
