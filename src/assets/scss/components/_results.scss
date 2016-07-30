@@ -14,6 +14,7 @@
 		line-height: 2;
 		padding: 0 .5em;
 		animation: resultSlide 500ms forwards;
+		transition: all 500ms cubic-bezier(1.000, 0.105, 0.330, 0.855);
 		opacity: 0;
 
 		@include clearfix;
