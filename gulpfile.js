@@ -1,51 +1,84 @@
 var gulp = require("gulp"),
     browserSync = require("browser-sync").create(),
+	reload = browserSync.reload,
     sass = require("gulp-sass"),
     sourcemaps = require('gulp-sourcemaps'),
     postcss = require('gulp-postcss'),
-    autoprefixer = require('autoprefixer');
+	cssnano = require('gulp-cssnano'),
+	rename = require('gulp-rename'),
+    autoprefixer = require('autoprefixer'),
+	jshint = require('gulp-jshint'),
+	uglify = require('gulp-uglify'),
+	concat = require('gulp-concat'),
+	del = require('del'),
+	notify = require('gulp-notify');
+
+
 
 // build, prefix and reload css
-gulp.task('build:css', function() {
-	return gulp
-	.src([
-		'src/assets/scss/wordr.scss'
-	])
+gulp.task('css', function() {
+	return gulp.src(['src/assets/scss/word-tally.scss'])
 	.pipe(sass().on('error', sass.logError))
 	.pipe(postcss([
-		//atImport,
 		autoprefixer({
 			browsers: ['last 5 versions', 'iOS 8']
 		})
 	]))
 	.pipe(gulp.dest('dist/assets/css'))
-	.pipe(browserSync.stream());
+	.pipe(rename({ suffix: '.min' }))
+	.pipe(cssnano())
+	.pipe(gulp.dest('dist/assets/css'))
+	.pipe(browserSync.stream())
+	.pipe(notify({ message: '✓ CSS complete' }));
 });
 
-// watch scss and run build:css
-gulp.task('watch:css', function() {
-	gulp.watch('src/assets/scss/**/*', ['build:css']);
+
+
+// JS
+gulp.task('js', function() {
+	return gulp.src('src/assets/js/**/*.js')
+	//.pipe(jshint('.jshintrc'))
+	//.pipe(jshint.reporter('default'))
+	.pipe(rename({ suffix: '.min' }))
+    .pipe(uglify())
+	.pipe(gulp.dest('dist/assets/js'))
+    .pipe(notify({ message: '✓ JS complete' }));
 });
 
 
-gulp.task('watch:js', function() {
-	gulp.watch('src/assets/js/**/*', ['copy']);
-});
 
-gulp.task('watch:app', function() {
-	gulp.watch('src/index.html', ['copy']);
-});
-
+// copy
 gulp.task('copy', function() {
-	return gulp
-	.src([
-		'src/index.html',
-		'src/assets/**/*'
-	])
-	.pipe(gulp.dest('dist/'));
+	return gulp.src('src/index.html')
+	.pipe(gulp.dest('dist/'))
+	.pipe(notify({ message: '✓ Copy complete' }));
 });
 
-gulp.task('sync', function() {
+
+// Watch
+gulp.task('watch', function() {
+
+	// scss
+	gulp.watch('src/assets/scss/**/*.scss', ['css']);
+
+	// JS
+	gulp.watch('src/assets/js/*.js', ['js']);
+
+	// html
+	gulp.watch('src/*.html', ['copy']);
+
+});
+
+
+
+// Clean the dist
+gulp.task('clean', function() {
+	return del(['dist/assets', 'dist/*.html'])
+});
+
+
+
+gulp.task('serve', function() {
 	browserSync.init({
 		startPath: '',
 		server: {
@@ -55,7 +88,11 @@ gulp.task('sync', function() {
 			// 	'/src' : '/dist'
 			// }
 		}
-	})
+	});
+
+	gulp.watch(['src/*.html', 'src/assets/js/*.js']).on('change', reload);
 });
 
-gulp.task('default', ['watch:css', 'watch:js', 'watch:app', 'copy', 'sync']);
+gulp.task('default', ['clean'], function() {
+	gulp.start('css', 'js', 'copy', 'watch', 'serve');
+});
