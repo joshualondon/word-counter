@@ -8,13 +8,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<style media="screen">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}button,.button{background:0 0;display:inline-block}.button{line-height:1;outline:none;padding:.25em 1em .4125em}.button--esc{background-color:#fff;border:1px solid #d6d6d6;color:#000}.button--esc:hover,.button--esc:focus{background-color:#ededed;transition:all .3s ease}.button--esc:is-active{background-color:#ededed}button{border:1px solid #d6d6d6;border-radius:4px;display:inline-block;line-height:1;outline:none;padding:.25em 1em .4125em}#run_it{background:#333;border:0;border-radius:0;color:#fff;font-size:2em;position:fixed;bottom:2em;left:0;width:80%}h1,h2,h3,h4,h5,h6,textarea,input{font-family:'PT Serif',serif}body{color:#000;font:1em/1.5 'PT Serif',serif;padding:0;margin:0;position:relative}.side{height:100%;position:fixed;top:0;bottom:0}.side.entry{left:0;padding:0 1em;width:80%}.side.return{border-left:1px solid #e6e6e6;left:80%;width:20%}#word_source{background:0 0;border:none;height:80vh;width:calc(100% - 2em);outline:none}.primary-footer{position:absolute;bottom:0;left:0;padding:.5em}.metrics{list-style:none;margin:0;padding:0}.metrics li{color:#b3b3b3;font:700 .75em/1 'PT Sans',sans-serif}.metrics li span{display:inline-block;padding:.75em 1em}.metrics li span:first-child{letter-spacing:1px;text-transform:uppercase}.primary-header{padding:.5em 0}.logotype span:first-child{background:#333;border-radius:.125em;color:#fff;display:inline-block;line-height:1;padding:.25em}.logotype h1{color:#999;display:inline-block;font-size:.85rem;font-weight:400;margin-left:.5em}</style>
-	<link rel="stylesheet" href="assets/css/word-tally.min.css" media="screen" charset="utf-8">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700" rel="stylesheet">
 
 	<link rel="icon" type="image/png" href="favicon.ico?ver=1.0">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
+
+	<link rel="stylesheet" href="assets/css/word-tally.min.css" media="screen" charset="utf-8"><script> </script>
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700" rel="stylesheet">
 
 	<main>
 
@@ -30,16 +31,20 @@
 			<div class="form">
 				<textarea name="word_source" id="word_source" rows="8" cols="40" placeholder="command + V or type words to count"></textarea>
 				<button type="button" id="run_it" name="button">Count</button>
+				<button type="button" class="button--security">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve"><g><path d="M78.1,40.7v-13c0-6.9-2.7-13.3-7.5-18.2C65.7,4.7,59.2,2,52.4,2C38.2,2,26.7,13.5,26.7,27.7v13   c-4,1-7,4.6-7,9v39.1c0,5.1,4.2,9.3,9.3,9.3h46.9c5.1,0,9.3-4.2,9.3-9.3V49.6C85.1,45.3,82.1,41.7,78.1,40.7z M52.4,13.2   c3.9,0,7.5,1.5,10.2,4.2c2.7,2.7,4.2,6.4,4.2,10.2v12.7h-29V27.7C37.9,19.7,44.4,13.2,52.4,13.2z M55.8,71.1c0,0.2,0,0.3,0,0.5v6.6   c0,1.9-1.5,3.5-3.5,3.5c-1.9,0-3.5-1.5-3.5-3.5v-6.6c0-0.2,0-0.3,0-0.5c-1.9-1.2-3.2-3.3-3.2-5.7c0-3.7,3-6.6,6.6-6.6   c3.7,0,6.6,3,6.6,6.6C59,67.9,57.7,70,55.8,71.1z"/></g></svg>
+				</button>
 			</div>
 
-			<footer class="primary-footer">
+			<!-- <footer class="primary-footer">
 				<div class="">
 					<button type="button" class="reset button--esc">esc</button> to clear
 				</div>
 				<div class="">
 					<button type="button" class="download-csv">Download CSV</button>
 				</div>
-			</footer>
+				<svg aria-hidden="true" class="octicon octicon-mark-github" height="28" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+			</footer> -->
 
 		</div>
 
@@ -57,6 +62,12 @@
 
 	</main>
 
+	<div class="modal security-statement">
+		<h3>Security</h3>
+		<p>While none of your text is saved on our servers, there is still the positiblity of someone intercepting the text from your browser.</p>
+		<button type="button" class="button--close-modal"></button>
+	</div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="assets/js/word-tally.min.js"></script>
 
@@ -66,8 +77,10 @@
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+
 		ga('create', 'UA-81686100-1', 'auto');
 		ga('send', 'pageview');
+
 	</script>
 
 </body>

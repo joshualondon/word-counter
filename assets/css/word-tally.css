@@ -5,6 +5,70 @@
 .clearfix:after {
   clear: both; }
 
+body::after {
+  transition: 500ms; }
+
+body.modal-active {
+  overflow: hidden; }
+  body.modal-active::after {
+    background: rgba(255, 255, 255, 0.87);
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+
+.modal {
+  background: #fff;
+  box-shadow: 0 0 67px rgba(0, 0, 0, 0.25);
+  width: 50vw;
+  padding: 2em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+      -ms-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  transition: all 500ms cubic-bezier(1, 0.105, 0.33, 0.855);
+  z-index: 999; }
+  .modal.is-active {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+        -ms-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1); }
+
+.button--close-modal {
+  border: 0;
+  display: block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 1em;
+  right: 1em; }
+  .button--close-modal::before, .button--close-modal::after {
+    background: #27adff;
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg); }
+  .button--close-modal::after {
+    -webkit-transform: rotate(315deg);
+        -ms-transform: rotate(315deg);
+            transform: rotate(315deg); }
+
+.form {
+  margin-right: 1em;
+  position: relative; }
+
 #results {
   list-style: none;
   overflow-y: scroll;
@@ -21,6 +85,7 @@
     padding: 0 .5em;
     -webkit-animation: resultSlide 500ms forwards;
             animation: resultSlide 500ms forwards;
+    transition: all 500ms cubic-bezier(1, 0.105, 0.33, 0.855);
     opacity: 0; }
     #results li:before, #results li:after {
       content: '';
@@ -175,3 +240,20 @@
     opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0); } }
+
+.button--security {
+  border: 0;
+  position: absolute;
+  line-height: 1;
+  bottom: 2em;
+  right: 2em;
+  width: 24px;
+  height: 24px;
+  padding: 0; }
+  .button--security svg {
+    width: 24px;
+    height: 24px; }
+    .button--security svg path {
+      fill: #999999; }
+  .button--security:hover svg path {
+    fill: #27adff; }
