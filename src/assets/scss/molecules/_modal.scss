@@ -1,0 +1,67 @@
+body {
+
+	&::after {
+		transition: 500ms;
+	}
+
+	&.modal-active {
+		overflow: hidden;
+
+		&::after {
+			background: rgba(255,255,255,.87);
+			content: '';
+			display: block;
+			position: fixed;
+			top: 0; right: 0; bottom: 0; left: 0;
+		}
+	}
+}
+
+.modal {
+	background: $white;
+	box-shadow: 0 0 67px rgba(0,0,0,.25);
+	width: 50vw;
+	//height: 50vh;
+	padding: 2em;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	opacity: 0;
+	transform: translate(-50%, -50%) scale(0);
+	transition: all 500ms cubic-bezier(1.000, 0.105, 0.330, 0.855);
+	z-index: 999;
+
+
+
+	&.is-active {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.button--close-modal {
+	border: 0;
+	display: block;
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	top: 1em;
+	right: 1em;
+
+	&::before,
+	&::after {
+		background: $color-primary;
+		content: '';
+		display: block;
+		width: 32px;
+		height: 1px;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		transform: rotate(315deg);
+	}
+}

@@ -1,0 +1,26 @@
+.button--security {
+
+	$size: 24px;
+
+	border: 0;
+	position: absolute;
+	line-height: 1;
+	bottom: 2em;
+	right: 2em;
+	width: $size;
+	height: $size;
+	padding: 0;
+
+	svg {
+		width: $size;
+		height: $size;
+
+		path {
+			fill: lighten($black, 60%);
+		}
+	}
+
+	&:hover svg path {
+		fill: $color-primary;
+	}
+}
