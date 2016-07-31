@@ -15,6 +15,12 @@ function reset() {
 	totalWords.text('');
 }
 
+function resetResults() {
+	resultsContainer.html('');
+}
+
+
+
 
 function countWords() {
 
@@ -89,9 +95,16 @@ function countWords() {
 
 
 
+
+
+
+
+
+
 $(document).ready(function() {
 
 	$('#run_it').on('click', function() {
+		resetResults();
 		countWords();
 	});
 
@@ -103,15 +116,20 @@ $(document).ready(function() {
 
 
 
+	if (navigator.appVersion.indexOf("Mac")!=-1) OSName="1";
+	if (navigator.appVersion.indexOf("Win")!=-1) OSName="2";
+	if (navigator.appVersion.indexOf("X11")!=-1) OSName="3";
+	if (navigator.appVersion.indexOf("Linux")!=-1) OSName="4";
 
-	$(document).keyup(function(e) {
-		if (e.keyCode === 12) {
-			reset();
-			console.log('esc pressed');
-		} // esc
-	});
+	if (OSName == 1) {
+		wordSource.attr('placeholder', 'CMD + V or begin typing');
+		console.log('you are on a mac');
+	}
 
-
+	if (OSName == 2) {
+		wordSource.attr('placeholder', 'Ctrl + V or begin typing');
+		console.log('you are on a pc');
+	}
 
 
 
@@ -131,40 +149,6 @@ $(document).ready(function() {
 	$('.download-csv').on('click', function() {
 		generateCSV();
 	});
-
-
-
-
-
-
-
-
-
-
-	// modals
-	$('.button--security').on('click', function() {
-		$('body').addClass('modal-active');
-		$('.modal.security-statement').addClass('is-active');
-	});
-
-	$('.button--close-modal').on('click', function() {
-		$('body').removeClass('modal-active');
-		$('.modal').removeClass('is-active');
-	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 });

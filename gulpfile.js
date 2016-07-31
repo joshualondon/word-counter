@@ -45,9 +45,10 @@ gulp.task('inlinecss', function() {
 
 // JS
 gulp.task('js', function() {
-	return gulp.src('src/assets/js/**/*.js')
+	return gulp.src('src/assets/js/!(facebook.js)*.js')
 	//.pipe(jshint('.jshintrc'))
 	//.pipe(jshint.reporter('default'))
+	.pipe(concat('word-tally.js'))
 	.pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
 	.pipe(gulp.dest('dist/assets/js'))
@@ -58,8 +59,8 @@ gulp.task('js', function() {
 
 // copy
 gulp.task('copy', function() {
-	return gulp.src('src/index.html')
-	.pipe(gulp.dest('src/'))
+	return gulp.src(['src/index.html', 'CNAME'])
+	.pipe(gulp.dest('dist/'))
 	.pipe(notify({ message: '✓ Copy complete' }));
 });
 
