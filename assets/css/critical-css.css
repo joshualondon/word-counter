@@ -176,6 +176,9 @@ h1, h2, h3, h4, h5, h6,
 textarea, input {
   font-family: 'PT Serif', serif; }
 
+* {
+  box-sizing: border-box; }
+
 body {
   color: #000;
   font: 1em/1.5 'PT Serif', serif;
@@ -201,7 +204,7 @@ body {
   background: transparent;
   border: none;
   height: 80vh;
-  width: calc(100% - 2em);
+  width: 100%;
   outline: none; }
 
 .primary-footer {
@@ -224,8 +227,25 @@ body {
         letter-spacing: 1px;
         text-transform: uppercase; }
 
+.clearfix:before, .clearfix:after {
+  content: '';
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
 .primary-header {
   padding: .5em 0; }
+  .primary-header:before, .primary-header:after {
+    content: '';
+    display: table; }
+  .primary-header:after {
+    clear: both; }
+  .primary-header .logotype {
+    float: left; }
+  .primary-header .addthis_sharing_toolbox {
+    float: right;
+    margin: .25em 0 0 0; }
 
 .logotype span:first-child {
   background: #333333;
