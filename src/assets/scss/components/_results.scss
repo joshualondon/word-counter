@@ -1,10 +1,12 @@
 #results {
+	border-bottom: 1px solid darken($white, 10%);
 	list-style: none;
 	overflow-y: scroll;
 	margin: 0;
 	padding: 0;
 	position: absolute;
-	height: 100%;
+	top: 2em;
+	bottom: 250px;
 	max-height: 100%;
 	width: 100%;
 

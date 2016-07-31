@@ -1,7 +1,12 @@
+@import 'https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700';
 @import 'vendor/_normalize-v3.min.scss';
 @import 'atoms/_colors.scss';
 @import 'atoms/_buttons.scss';
 @import 'atoms/_typography.scss';
+
+* {
+	box-sizing: border-box;
+}
 
 // -- body setup
 body {
@@ -37,7 +42,7 @@ body {
 	background: transparent;
 	border: none;
 	height: 80vh;
-	width: calc(100% - 2em);
+	width: 100%;
 	outline: none;
 }
 
@@ -69,6 +74,13 @@ body {
 	}
 }
 
+@import 'atoms/_clearfix.scss';
+@import 'atoms/_colors.scss';
+@import 'atoms/_responsive.scss';
 
 @import 'components/_primary-header.scss';
 @import 'components/_logotype.scss';
+@import 'components/_entry.scss';
+@import 'components/_results.scss';
+@import 'components/_primary-footer.scss';
+@import 'components/_google-ads.scss';
